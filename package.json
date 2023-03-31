@@ -1,0 +1,27 @@
+{
+  "proxy": "http://localhost:5000",
+  "name": "admin_food",
+  "version": "1.0.0",
+  "description": "build webpage for admin manager food-shop",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "admin_food"
+  ],
+  "author": "son hai dang",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
+}

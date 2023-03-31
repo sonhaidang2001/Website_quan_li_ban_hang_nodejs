@@ -1,0 +1,35 @@
+{{>header}}
+
+<div class="container mt-5" >
+<a class="btn btn-dark mb-2 text-light" href="/customs/add-custom"><i class="fa-solid fa-plus"></i> Add new custom</a>
+<table class="table">
+  <thead style="background-color: #2169C0;">
+    <tr class="text-center">
+      <th scope="col">STT</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col" >Active</th>
+    </tr>
+  </thead>
+  <tbody class="table-secondary">
+    {{#each customs}}
+    <tr class="text-center">
+      <th scope="row">{{sum @index 1}}</th>
+      <td>{{this.username}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.password}}</td>
+      <td>{{this.address}}</td>
+      <td>{{this.phone}}</td>
+      <td>
+        <div class="btn btn-success"><i class="fa-solid fa-pen"></i></div>
+        <a class="btn btn-danger" href="/customs/del-custom/{{this._id}}"><i class="fa-solid fa-trash"></i></a>
+    </td>
+     
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
