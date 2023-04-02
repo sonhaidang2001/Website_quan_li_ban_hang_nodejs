@@ -29,16 +29,30 @@ exports.findAll = async (req,res,next) =>{
         )
       }
 }
-exports.deleteAll = async (req,res,next) =>{
-   res.send('helo')
-}
 exports.findOne = async (req,res,next) =>{
+   try {
+      const {id} = req.params;
+      const custom = await Custom.findById(id);
+      res.status(200).json(custom);
+  } catch (error) {
+   return next(
+      new ApiError(500, "you can find custom")
+   )
+  }
+}
+exports.deleteAll = async (req,res,next) =>{
   
 }
+
 exports.delete = async (req,res,next) =>{
-   const id = req.params.id;
    try {
+      const {id} = req.params;
       const custom =  await Custom.findByIdAndDelete(id);
+      if(!custom){
+         return next(
+            new ApiError(500, `cannot find any product with ID ${id}`)
+         )
+     }
       res.status(200).json("custom has been deleted...");
     } catch (error) {
       return next(
@@ -49,5 +63,20 @@ exports.delete = async (req,res,next) =>{
 
 
 exports.update = async (req,res,next) =>{
-  
+   try {
+      const {id} = req.params;
+      const custom = await Custom.findByIdAndUpdate(id, req.body,{new:true});
+      // we cannot find any custom in database
+      if(!custom){
+         return next(
+            new ApiError(500, `cannot update any custom with ID ${id}`)
+         )
+     }
+      res.json(custom);      
+      
+  } catch (error) {
+   return next(
+      new ApiError(500, "you can update custom")
+   )
+  }
  }

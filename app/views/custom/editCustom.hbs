@@ -1,14 +1,14 @@
 {{>header}}
 <div class="container mt-2">
-    <h1 class="text-center">Add Custom</h1>
-<form method="POST" action="/customs/add-CustomShow">
+    <h1 class="text-center">Update Custom</h1>
+<form method="POST" action="/customs/update-custom/{{custom._id}}">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
     <input type="username" name="username" value="{{custom.username}}"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" name="password" value="{{custom.password}}"  class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+    <input type="text" name="password" value="{{custom.password}}"  class="form-control" id="exampleInputPassword1" placeholder="Enter password">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Email</label>

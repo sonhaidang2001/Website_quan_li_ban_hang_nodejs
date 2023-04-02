@@ -6,7 +6,9 @@ const productController = require('../controllers/product.controller');
 
 // api 
 
-// router.get('/del-custom/:id', customService.delCustom);
+router.post('/update-product/:id', productService.updateProduct);
+router.get('/edit-product/:id', productService.editProduct);
+router.get('/del-product/:id', productService.delProduct);
 router.post('/add-productShow', productService.addProductShow);
 router.get('/add-product', productService.addProduct);
 router.get('/', productService.product);

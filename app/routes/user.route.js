@@ -5,7 +5,7 @@ const userService = require('../services/user.service');
 const userController = require('../controllers/user.controller');
 
 
-router.put('/edit/:id', userService.editUpdate);
+router.post('/edit/:id', userService.update);
 router.get('/edit', userService.edit);
 router.get('/home', userService.home);
 router.post('/login-check', userService.loginCheck);
@@ -13,10 +13,10 @@ router.get('/', userService.login);
 
 
 // api 
-router.route('/api/users')
+router.route('/api/user')
     .post(userController.create)
     .get(userController.findAll)
-router.route('/api/users/:id')
+router.route('/api/user/:id')
     .get(userController.findOne)
     .put(userController.update)
 
