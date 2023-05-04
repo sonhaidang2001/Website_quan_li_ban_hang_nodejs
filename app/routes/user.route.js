@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
 const userService = require('../services/user.service');
 const userController = require('../controllers/user.controller');
 
 
+// service
 router.post('/edit/:id', userService.update);
 router.get('/edit', userService.edit);
 router.get('/home', userService.home);

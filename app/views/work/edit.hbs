@@ -1,0 +1,15 @@
+{{>header}}
+<div class="container">
+   <h2 class="text-center mt-3">Cập nhật công việc</h2>
+        <form method="POST" action="/works/update-work/{{workUpdate._id}}">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Tên công việc</label>
+                <input type="name" name="name" value="{{workUpdate.name}}"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Mô tả</label>
+                <input type="text" name="description" value="{{workUpdate.description}}"   class="form-control" id="exampleInputPassword1" >
+            </div>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+</div>

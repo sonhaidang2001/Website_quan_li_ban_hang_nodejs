@@ -76,7 +76,7 @@ exports.update = async (req,res,next) =>{
       
   } catch (error) {
    return next(
-      new ApiError(500, "you can update custom")
+      new ApiError(500, "you can't update custom")
    )
   }
  }

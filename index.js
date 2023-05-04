@@ -7,12 +7,19 @@ const  {engine} = require('express-handlebars');
 const path = require('path');
 const userRouter = require('./app/routes/user.route');
 const customRouter = require('./app/routes/custom.route');
-const productRouter = require('./app/routes/product.route');
+const workRouter = require('./app/routes/work.route');
+// const multer = require('multer');
 // const methodOverride = require('method-override');
 
 // db 
 db.connect();
 
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+
+// app.post("/api/upload", upload.single("file"), (req, res) => {
+//     res.status(200).json("File has been uploaded");
+//   });
 // port
 require('dotenv').config();
 const port = process.env.PORT;
@@ -26,7 +33,7 @@ app.use(express.urlencoded({
 
 // app.use(methodOverride('_method'));
 
-app.use('/products',productRouter)
+app.use('/works',workRouter)
 app.use('/customs',customRouter)
 app.use('/',userRouter)
 
@@ -50,9 +57,6 @@ app.use((err, req, res, next) => {
     message: err.message || "Internal Server Error",
     });
 });
-
-
-
 
 app.listen(port, () =>
     console.log(`App listening at http://localhost:${port}`),

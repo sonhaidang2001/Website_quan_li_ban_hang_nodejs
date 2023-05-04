@@ -1,25 +1,10 @@
 const axios  = require('axios');
 const ApiError = require('../api-error');
 
-
-
-exports.custom = async (req, res,next) =>{
-   
-    await axios.get('http://localhost:5000/customs/api/custom')
-    .then(respon =>{
-        res.render('custom/custom',{customs:respon.data})
-    })
-    .catch(err =>{
-        return next(
-            new ApiError(500, "you can find custom")
-        )
-    })
-}
 exports.addCustom = async (req, res) =>{
     res.render('custom/addCustom');
 }
-exports.addCustomShow = async (req, res) =>{
-    
+exports.addCustomNew = async (req, res) =>{
     await axios.post('http://localhost:5000/customs/api/custom',{
         username:req.body.username,
         email:req.body.email,
@@ -28,7 +13,7 @@ exports.addCustomShow = async (req, res) =>{
         phone:req.body.phone,
     })
     .then(respon =>{
-        res.redirect('/customs');       
+        res.redirect('/home');       
     })
     .catch(err =>{
         return next(
@@ -41,11 +26,11 @@ exports.delCustom = async (req, res,next) =>{
     // console.log(idCustom);
     await axios.delete('http://localhost:5000/customs/api/custom/'+idCustom)
     .then(respon =>{
-        res.redirect('/customs')
+        res.redirect('/home')
     })
     .catch(err =>{
         return next(
-            new ApiError(500, "you can delete custom")
+            new ApiError(500, "you can't delete custom")
         )
     })
 }
@@ -58,7 +43,7 @@ exports.editCustom = async (req, res,next) =>{
     })
     .catch(err =>{
         return next(
-            new ApiError(500, "you can find custom")
+            new ApiError(500, "you can find custom for id")
         )
     })
 }
@@ -67,11 +52,11 @@ exports.updateCustom = async (req, res,next) =>{
     //    console.log(req.params);
         await axios.put(`http://localhost:5000/customs/api/custom/${req.params.id}`,req.body,{new:true})
         .then(respon =>{
-            res.redirect('/customs')
+            res.redirect('/home')
         })
         .catch(err =>{
             return next(
-                new ApiError(500, "you can update custom")
+                new ApiError(500, "you can't update custom")
             )
         })
     }

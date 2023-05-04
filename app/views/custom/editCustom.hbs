@@ -1,13 +1,13 @@
 {{>header}}
 <div class="container mt-2">
-    <h1 class="text-center">Update Custom</h1>
+    <h1 class="text-center">Cập nhật khách hàng</h1>
 <form method="POST" action="/customs/update-custom/{{custom._id}}">
   <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
+    <label for="exampleInputEmail1">Họ và Tên</label>
     <input type="username" name="username" value="{{custom.username}}"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label for="exampleInputPassword1">Mật khẩu</label>
     <input type="text" name="password" value="{{custom.password}}"  class="form-control" id="exampleInputPassword1" placeholder="Enter password">
   </div>
   <div class="form-group">
@@ -15,14 +15,14 @@
     <input type="email" name="email" value="{{custom.email}}"  class="form-control" id="exampleInputPassword1" placeholder="Enter @gmail.com">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Address</label>
+    <label for="exampleInputPassword1">Địa chỉ</label>
     <input type="text" name="address" value="{{custom.address}}"  class="form-control" id="exampleInputPassword1" placeholder="Enter address">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Phone</label>
+    <label for="exampleInputPassword1">Số điện thoại</label>
     <input type="phone" name="phone" value="{{custom.phone}}" class="form-control" id="exampleInputPassword1" placeholder="Enter phone">
   </div>
   
-  <button type="submit" class="btn btn-primary">Update</button>
+  <button type="submit" class="btn btn-primary">Cập nhật</button>
 </form>
 </div>

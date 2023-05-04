@@ -1,0 +1,49 @@
+{{>header}}
+<div class="container-fluid mt-5" >
+{{!-- <a class="btn btn-dark mb-2 text-light row" href="/customs/add-custom"><i class="fa-solid fa-plus"></i> Add new custom</a> --}}
+    <div class="row">       
+    {{!-- Add work --}}
+    <div class="col-4">
+        <h2 class="text-center">Thêm công việc</h2>
+        <form method="POST" action="/works/add-workNew">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Tên công việc</label>
+                <input type="name" name="name"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Mô tả</label>
+                <input type="text" name="description"   class="form-control" id="exampleInputPassword1" >
+            </div>
+            <button type="submit" class="btn btn-primary">Thêm</button>
+        </form>
+     </div>
+      {{!-- Show work --}}
+        <div class="col-8">
+        <table class="table" style="margin-top: 75px;">
+            <thead style="background-color: #2169C0;">
+                <tr class="text-center">
+                <th scope="col">STT</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Mô tả</th>    
+                <th scope="col">Thời gian</th>    
+                <th scope="col" >Active</th>
+                </tr>
+            </thead>
+            <tbody class="table-secondary">
+                {{#each work}}
+                <tr class="text-center">
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>      
+                <td></td>      
+                <td>
+                    <a class="btn btn-success" href="/works/edit-work/{{this._id}}"><i class="fa-solid fa-pen"></i></a>
+                    <a class="btn btn-danger" href="/works/del-work/{{this._id}}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+                
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
