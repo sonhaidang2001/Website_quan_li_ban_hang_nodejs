@@ -1,4 +1,4 @@
-const Work = require('../models/work.model');
+const Work = require('../models/work.model')
 const ApiError = require('../api-error');
 
 exports.create = async (req,res,next) =>{   

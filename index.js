@@ -5,24 +5,16 @@ const ApiError = require('./app/api-error');
 const db = require('./database/db');
 const  {engine} = require('express-handlebars');
 const path = require('path');
+const port = 5000;
 const userRouter = require('./app/routes/user.route');
 const customRouter = require('./app/routes/custom.route');
 const workRouter = require('./app/routes/work.route');
-// const multer = require('multer');
-// const methodOverride = require('method-override');
+
 
 // db 
 db.connect();
 
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-
-
-// app.post("/api/upload", upload.single("file"), (req, res) => {
-//     res.status(200).json("File has been uploaded");
-//   });
-// port
-require('dotenv').config();
-const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -30,8 +22,6 @@ app.use(express.urlencoded({
         extended: true,
     }),
 );
-
-// app.use(methodOverride('_method'));
 
 app.use('/works',workRouter)
 app.use('/customs',customRouter)

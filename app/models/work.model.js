@@ -8,7 +8,11 @@ const WorkSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      unique: true,
+      // unique: true,
+    },
+    completed:{
+        type:Boolean,
+        default:false
     }
     
   },
